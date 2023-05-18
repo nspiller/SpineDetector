@@ -1,0 +1,6 @@
+#Temporary folders for training
+yolov5/
+
+# Python Tools
+__pycache__/
+*.pyc
