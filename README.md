@@ -14,7 +14,7 @@ Tested in python 3.11.3.
 
 ```bash
 git clone https://github.com/ryoheiyasuda/SpineDetector.git
-cd spinedetect
+cd SpineDetector
 python(or python3) -m venv venv
 ./venv/Scripts/activate
 pip install -r requirements.txt
