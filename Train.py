@@ -48,14 +48,14 @@ torch.cuda.empty_cache()
 # import subprocess
 # os.chdir(yolo_path)
 
-if '../' not in sys.path:
-    sys.path.insert(0, '../')
+if yolo_path not in sys.path:
+    sys.path.insert(0, yolo_path)
 
 from train import run as run_train
 
-
-run_train(weights='yolov5l.pt', data='data.yaml', hyp='data\hyps\hyp.scratch-low.yaml', epochs=300, batch_size=32, imgsz=416, rect=False, resume=False, nosave=False, noval=False, noautoanchor=False, noplots=False, evolve=None, cache='ram', image_weights=False, multi_scale=False, single_cls=False, optimizer='SGD', sync_bn=False, workers=8, project='models/YoloDendritic', name='SpineDetection', exist_ok=False, quad=False, cos_lr=False, label_smoothing=0.0, patience=100, freeze=[0,], save_period=-1, seed=0, local_rank=-1, entity=None, upload_dataset=False, bbox_interval=-1,artifact_alias='latest')
+yolo_thrash = yolo_path + "\\"
+run_train(weights=yolo_thrash+'yolov5l.pt', data=yolo_thrash+'data.yaml', hyp=yolo_thrash+'data\hyps\hyp.scratch-low.yaml', epochs=300, batch_size=32, imgsz=416, rect=False, resume=False, nosave=False, noval=False, noautoanchor=False, noplots=False, evolve=None, cache='ram', image_weights=False, multi_scale=False, single_cls=False, optimizer='SGD', sync_bn=False, workers=8, project=yolo_thrash+'models/YoloDendritic', name='SpineDetection', exist_ok=False, quad=False, cos_lr=False, label_smoothing=0.0, patience=100, freeze=[0,], save_period=-1, seed=0, local_rank=-1, entity=None, upload_dataset=False, bbox_interval=-1,artifact_alias='latest')
 
 #%%
 from val import run as run_val
-run_val(weight='weights/best.pt', data='data.yaml', imgsz=416, project='YoloDendritic', name='Valid')
+run_val(weight=yolo_thrash+'weights/best.pt', data=yolo_thrash+'data.yaml', imgsz=416, project='YoloDendritic', name='Valid')
