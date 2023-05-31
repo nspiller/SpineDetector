@@ -66,7 +66,7 @@ class SpineDetection():
         fig, ax = plt.subplots()
         ax.imshow(rgb)
 
-        for pred in prediction.xyxy[0]:
+        for pred in prediction.xyxy[0].cpu():
             ax.add_patch(Rectangle((pred[0], pred[1]),
                                    pred[2]-pred[0], pred[3]-pred[1],
                                    fill = False,ec="r"))
@@ -102,6 +102,6 @@ if __name__ == "__main__":
         prediction = sd.prediction(rgb)
 
         # save prediction
-        png_path = save_dir / tif.with_suffix('.png')
+        png_path = save_dir / tif.with_suffix('.png').name
         sd.save_detection(rgb, prediction, savepath=png_path)
 
