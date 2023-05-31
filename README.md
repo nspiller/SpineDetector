@@ -10,19 +10,10 @@ Minor modification by Tetsuya Watabe and Ryohei Yasuda
 # Installation
 The following example can be used for installation. 
 
-
-## via `pip`
-Tested in python 3.11.3. 
-
-```bash
-git clone https://github.com/ryoheiyasuda/SpineDetector.git
-cd SpineDetector
-python(or python3) -m venv venv
-./venv/Scripts/activate
-pip install -r requirements.txt
+Clone this repo
 ```
-
-## via `conda`
+git clone https://github.com/nspiller/SpineDetector.git
+```
 
 Create and activate environment
 
