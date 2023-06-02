@@ -60,7 +60,7 @@ def main():
     train.run(
         project=str(yolo_path / 'models/YoloDendritic'),
         name='SpineDetection', 
-        exist_ok=False, 
+        exist_ok=True,
         weights=str(yolo_path / 'yolov5l.pt'),
         data=str(yolo_path / 'data.yaml'),
         hyp=str(yolo_path / 'data/hyps/hyp.scratch-low.yaml'),
@@ -101,20 +101,21 @@ def main():
     '''
 
 
-    #%%
-    import val
-    val.run(
-        weight=yolo_path / 'weights/best.pt',
-        data=yolo_path / 'data.yaml',
-        imgsz=416,
-        project='YoloDendritic',
-        name='Valid'
-        )
+    # #%%
+    # import val
+    # val.run(
+    #     weights=yolo_path / 'models/YoloDendritic/SpineDetection/weights/best.pt',
+    #     exist_ok=True,
+    #     data=yolo_path / 'data.yaml',
+    #     imgsz=416,
+    #     project=yolo_path / 'models/YoloDendritic',
+    #     name='Valid'
+    #     )
 
-    '''
-    You can also run in the system command:
-    python val.py --weights "weights/best.pt" --data data.yaml --imgsz 416 --project "YoloDendritic" --name Valid
-    '''
+    # '''
+    # You can also run in the system command:
+    # python val.py --weights "weights/best.pt" --data data.yaml --imgsz 416 --project "YoloDendritic" --name Valid
+    # '''
 
 if __name__ == '__main__':
     # necessary for multiprocessing on windows
